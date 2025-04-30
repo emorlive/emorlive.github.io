@@ -188,6 +188,12 @@
   </div>
 
   <script>
+
+    // Check and apply saved dark mode state
+    if (localStorage.getItem("darkMode") === "true") {
+      document.body.classList.add("dark");
+    }
+
     // Search functionality
     document.getElementById('searchInput').addEventListener('input', function () {
       const query = this.value.toLowerCase();
@@ -208,7 +214,8 @@
 
     // Dark mode toggle
     function toggleDarkMode() {
-      document.body.classList.toggle('dark');
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem("darkMode", isDark);
     }
   </script>
 
